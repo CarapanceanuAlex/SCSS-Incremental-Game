@@ -1,0 +1,98 @@
+html, body {
+    height: 100%;
+    display: flex; /* Enables flexbox layout */
+    flex-direction: row;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    z-index: 10;
+
+}
+
+body {
+    background-image: url("photos/background.jpg"); /* Replace with your image path */
+    background-size: cover; /* Ensure the background image covers the whole screen */
+    background-position: center center; /* Center the background image */
+    background-repeat: no-repeat; /* Prevent the background from repeating */
+}
+
+#container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    z-index: 10;
+}
+
+#upgradeButContainer {
+    position: absolute; /* Make it float above other elements */
+    top: 77%; /* Adjust the top position as needed */
+    left: 50%;
+    transform: translateX(-50%); /* Center the container horizontally */
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    
+}
+
+#clickMeButton {
+    width: 350px; /* Adjust to desired width */
+    height: auto; /* Maintain aspect ratio */
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+#clickMeButton:active {
+    animation: bounceBack 0.2s ease;
+}
+
+@keyframes bounceBack {
+    0% {
+        transform: scale(1) translateY(0); /* Initial state */
+    }
+    30% {
+        transform: scale(0.9) translateY(-5px); /* Shrink slightly and move up */
+    }
+    100% {
+        transform: scale(1) translateY(0); /* Back to normal */
+    }
+}
+
+.invisButton {
+    visibility: hidden; /* Make buttons invisible but keep them in the layout */
+    opacity: 0; /* Make buttons transparent */
+    transition: opacity 0.5s ease-in-out; 
+    border-color: black;
+
+    background-image: url("photos/buttonBackground.jpg"); /* Replace with your image path */
+    background-size: cover; /* Ensure the background image covers the whole screen */
+    background-position: center center; /* Center the background image */
+    background-repeat: no-repeat; /* Prevent the background from repeating */
+}
+
+.invisButton.visible {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Style for the falling dollar bill */
+.falling-image {
+    position: fixed;
+    top: 0;
+    width: 70px; /* Adjust size of the dollar bill */
+    height: 70px; /* Adjust size of the dollar bill */
+    z-index: 1; /*daca e mai mica o sa fie in spatele lucrurilor care au valoarea mai mare*/
+    animation: fall 4s ease-out forwards;
+}
+
+/* Keyframes for falling animation */
+@keyframes fall {
+    0% {
+        transform: translateY(-100px); /* Start above the screen */
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh); /* End at the bottom of the viewport */
+        
+    }
+}
